@@ -2190,7 +2190,7 @@
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="e7e7c97535181ba299bc0ad02904f851088a0dd5">
-        <source>Returns all Bisq transactions that exist in a Litecoin Block.</source>
+        <source>Returns all Bisq transactions that exist in a Trumpow Block.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/api-docs/api-docs.component.html</context>
           <context context-type="linenumber">260</context>
@@ -2204,14 +2204,14 @@
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="ac234ff46c8f499399a20fb5d74005094de7cdcd">
-        <source>Returns the most recently processed Litecoin Block Height processed by Bisq.</source>
+        <source>Returns the most recently processed Trumpow Block Height processed by Bisq.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/api-docs/api-docs.component.html</context>
           <context context-type="linenumber">268</context>
         </context-group>
       </trans-unit>
       <trans-unit datatype="html" id="9604b870a64e6635062828425fcb801371e716ad">
-        <source>Returns all Bisq transactions belonging to a Litecoin Address, with 'B' prefixed in front of the address.</source>
+        <source>Returns all Bisq transactions belonging to a Trumpow Address, with 'B' prefixed in front of the address.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/api-docs/api-docs.component.html</context>
           <context context-type="linenumber">272</context>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbCollapseModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faFilter, faAngleDown, faAngleUp, faAngleRight, faAngleLeft, faBolt, faChartArea, faCogs, faCubes, faHammer, faDatabase, faExchangeAlt, faInfoCircle,
   faLink, faList, faSearch, faCaretUp, faCaretDown, faTachometerAlt, faThList, faTint, faTv, faAngleDoubleDown, faSortUp, faAngleDoubleUp, faChevronDown,
@@ -59,6 +60,7 @@ import { DifficultyComponent } from '../components/difficulty/difficulty.compone
 import { DifficultyTooltipComponent } from '../components/difficulty/difficulty-tooltip.component';
 import { DifficultyMiningComponent } from '../components/difficulty-mining/difficulty-mining.component';
 import { TermsOfServiceComponent } from '../components/terms-of-service/terms-of-service.component';
+import { HashrateChartComponent } from '../components/hashrate-chart/hashrate-chart.component';
 import { RbfTimelineComponent } from '../components/rbf-timeline/rbf-timeline.component';
 import { RbfTimelineTooltipComponent } from '../components/rbf-timeline/rbf-timeline-tooltip.component';
 import { TxBowtieGraphComponent } from '../components/tx-bowtie-graph/tx-bowtie-graph.component';
@@ -147,6 +149,7 @@ import { ClockMempoolComponent } from '../components/clock/clock-mempool.compone
     DifficultyTooltipComponent,
     RbfTimelineComponent,
     RbfTimelineTooltipComponent,
+    HashrateChartComponent,
     TxBowtieGraphComponent,
     TxBowtieGraphTooltipComponent,
     TermsOfServiceComponent,
@@ -195,6 +198,9 @@ import { ClockMempoolComponent } from '../components/clock/clock-mempool.compone
     NgbCollapseModule,
     InfiniteScrollModule,
     FontAwesomeModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
   ],
   providers: [
     VbytesPipe,
@@ -215,6 +221,7 @@ import { ClockMempoolComponent } from '../components/clock/clock-mempool.compone
     NgbCollapseModule,
     InfiniteScrollModule,
     FontAwesomeModule,
+    NgxEchartsModule,
     TimeComponent,
     ClipboardComponent,
     QrcodeComponent,
@@ -259,6 +266,7 @@ import { ClockMempoolComponent } from '../components/clock/clock-mempool.compone
     FeesBoxComponent,
     DifficultyComponent,
     DifficultyMiningComponent,
+    HashrateChartComponent,
     DifficultyTooltipComponent,
     RbfTimelineComponent,
     RbfTimelineTooltipComponent,

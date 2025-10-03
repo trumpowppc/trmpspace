@@ -218,7 +218,7 @@ class BitcoinApi implements AbstractBitcoinApi {
       };
     });
 
-    if (transaction.confirmations) {
+    if (transaction.blockhash) {
       esploraTransaction.status = {
         confirmed: true,
         block_height: blocks.getCurrentBlockHeight() - transaction.confirmations + 1,
@@ -229,8 +229,11 @@ class BitcoinApi implements AbstractBitcoinApi {
 
     if (addPrevout) {
       esploraTransaction = await this.$calculateFeeFromInputs(esploraTransaction, false, lazyPrevouts);
-    } else if (!transaction.confirmations) {
-      esploraTransaction = await this.$appendMempoolFeeData(esploraTransaction);
+    } else {
+      // Only try to get fee from mempool for unconfirmed transactions
+      if (!esploraTransaction.status.confirmed) {
+        esploraTransaction = await this.$appendMempoolFeeData(esploraTransaction);
+      }
     }
 
     return esploraTransaction;
@@ -269,7 +272,8 @@ class BitcoinApi implements AbstractBitcoinApi {
     } else {
       mempoolEntry = await this.$getMempoolEntry(transaction.txid);
     }
-    transaction.fee = Math.round((mempoolEntry.fees?.base ?? mempoolEntry.fee ?? 0) * 100000000);
+    const originalFee = mempoolEntry.fees?.base ?? mempoolEntry.fee ?? 0;
+    transaction.fee = Math.round(originalFee * 100000000);
     return transaction;
   }
 

@@ -13,7 +13,7 @@ class TransactionUtils {
       }],
       vout: tx.vout
         .map((vout) => ({
-          scriptpubkey_address: vout.scriptpubkey_address,
+          scriptpubkey_address: vout.scriptpubkey_address || (vout as any).scriptPubKey?.address || '',
           scriptpubkey_asm: vout.scriptpubkey_asm,
           value: vout.value
         }))
@@ -43,8 +43,11 @@ class TransactionUtils {
       // @ts-ignore
       return transaction;
     }
-    const feePerVbytes = Math.max(Common.isLiquid() ? 0.1 : 1,
-      (transaction.fee || 0) / (transaction.weight / 4));
+    // Convert fee from satoshis to MEWC, then calculate fee per vbyte
+    const feeInMewc = (transaction.fee || 0) / 100000000; // Convert satoshis to MEWC
+    const calculatedFee = feeInMewc / (transaction.weight / 4);
+    const feePerVbytes = Math.max(Common.isLiquid() ? 0.1 : 0.00001, calculatedFee);
+
     const transactionExtended: TransactionExtended = Object.assign({
       vsize: Math.round(transaction.weight / 4),
       feePerVsize: feePerVbytes,

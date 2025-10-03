@@ -4334,7 +4334,7 @@
         <note priority="1" from="description">mining.average-fee</note>
       </trans-unit>
       <trans-unit id="31443c29cb161e8aa661eb5035f675746ef95b45" datatype="html">
-        <source>lits/tx</source>
+        <source>trmp/tx</source>
         <target>lits/tx</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/reward-stats/reward-stats.component.html</context>
@@ -4375,7 +4375,7 @@
         <note priority="1" from="description">search-form.search-title</note>
       </trans-unit>
       <trans-unit id="0673b255ba8db0bc5e2cccd5962d31dc88c24578" datatype="html">
-        <source>Litecoin Block Height</source>
+        <source>Trumpow Block Height</source>
         <target>ლაიტკოინი ბლოკის სიმაღლე</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -4393,7 +4393,7 @@
         <note priority="1" from="description">search.bitcoin-transaction</note>
       </trans-unit>
       <trans-unit id="aacf72635ebf6cfe00590e3a426ea6002c43a729" datatype="html">
-        <source>Litecoin Address</source>
+        <source>Trumpow Address</source>
         <target>ლაიტკოინი მისამართი</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -4402,7 +4402,7 @@
         <note priority="1" from="description">search.bitcoin-address</note>
       </trans-unit>
       <trans-unit id="97089c008af92d87389ff1ec5fb2cc96a6ecef0e" datatype="html">
-        <source>Litecoin Block</source>
+        <source>Trumpow Block</source>
         <target>ლაიტკოინი ბლოკი</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -4411,7 +4411,7 @@
         <note priority="1" from="description">search.bitcoin-block</note>
       </trans-unit>
       <trans-unit id="e89c09d708a1da5f6a59ba6c38ba3db78031fe0e" datatype="html">
-        <source>Litecoin Addresses</source>
+        <source>Trumpow Addresses</source>
         <target>ლაიტკოინი მისამართები</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -5954,7 +5954,7 @@
         <note priority="1" from="description">channels.id</note>
       </trans-unit>
       <trans-unit id="e4b2d9e6a2ab9e6ca34027ec03beaac42b7badd4" datatype="html">
-        <source>lits</source>
+        <source>trmp</source>
         <target>lits</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/lightning/channels-list/channels-list.component.html</context>

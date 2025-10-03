@@ -95,6 +95,12 @@ class PriceUpdater {
       // if (this.historyInserted === false && config.DATABASE.ENABLED === true) {
       //   await this.$insertHistoricalPrices();
       // }
+
+      // Set historyInserted to true since we're skipping historical data for now
+      if (this.historyInserted === false) {
+        this.historyInserted = true;
+        this.lastHistoricalRun = new Date().getTime();
+      }
     } catch (e: any) {
       logger.err(`Cannot save TRMP prices in db. Reason: ${e instanceof Error ? e.message : e}`, logger.tags.mining);
     }
@@ -144,7 +150,8 @@ class PriceUpdater {
       if (prices.length === 0) {
         this.latestPrices[currency] = -1;
       } else {
-        this.latestPrices[currency] = Math.round((prices.reduce((partialSum, a) => partialSum + a, 0)) / prices.length);
+        // Keep decimal precision for small prices like TRMP (0.0000021)
+        this.latestPrices[currency] = (prices.reduce((partialSum, a) => partialSum + a, 0)) / prices.length;
       }
     }
 

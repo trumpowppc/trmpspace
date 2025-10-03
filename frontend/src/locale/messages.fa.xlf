@@ -628,7 +628,7 @@
         <note priority="1" from="description">Bisq All Markets</note>
       </trans-unit>
       <trans-unit id="ece163b62f5e9b0b68a8d6a2d93e216318f557ba" datatype="html">
-        <source>Litecoin Markets</source>
+        <source>Trumpow Markets</source>
         <target>بازارهای لایت کوین</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/bisq/bisq-dashboard/bisq-dashboard.component.html</context>
@@ -4347,7 +4347,7 @@
         <note priority="1" from="description">mining.average-fee</note>
       </trans-unit>
       <trans-unit id="31443c29cb161e8aa661eb5035f675746ef95b45" datatype="html">
-        <source>lits/tx</source>
+        <source>trmp/tx</source>
         <target>lits بر tx</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/reward-stats/reward-stats.component.html</context>
@@ -4388,7 +4388,7 @@
         <note priority="1" from="description">search-form.search-title</note>
       </trans-unit>
       <trans-unit id="0673b255ba8db0bc5e2cccd5962d31dc88c24578" datatype="html">
-        <source>Litecoin Block Height</source>
+        <source>Trumpow Block Height</source>
         <target>طول بلاک لایت کوین</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -4406,7 +4406,7 @@
         <note priority="1" from="description">search.bitcoin-transaction</note>
       </trans-unit>
       <trans-unit id="aacf72635ebf6cfe00590e3a426ea6002c43a729" datatype="html">
-        <source>Litecoin Address</source>
+        <source>Trumpow Address</source>
         <target>آدرس لایت کوین</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -4415,7 +4415,7 @@
         <note priority="1" from="description">search.bitcoin-address</note>
       </trans-unit>
       <trans-unit id="97089c008af92d87389ff1ec5fb2cc96a6ecef0e" datatype="html">
-        <source>Litecoin Block</source>
+        <source>Trumpow Block</source>
         <target>بلاک لایت کوین</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -4424,7 +4424,7 @@
         <note priority="1" from="description">search.bitcoin-block</note>
       </trans-unit>
       <trans-unit id="e89c09d708a1da5f6a59ba6c38ba3db78031fe0e" datatype="html">
-        <source>Litecoin Addresses</source>
+        <source>Trumpow Addresses</source>
         <target>آدرس لایت کوین</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search-form/search-results/search-results.component.html</context>
@@ -5968,7 +5968,7 @@
         <note priority="1" from="description">channels.id</note>
       </trans-unit>
       <trans-unit id="e4b2d9e6a2ab9e6ca34027ec03beaac42b7badd4" datatype="html">
-        <source>lits</source>
+        <source>trmp</source>
         <target>lits</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/lightning/channels-list/channels-list.component.html</context>

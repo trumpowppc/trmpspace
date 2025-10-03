@@ -66,6 +66,7 @@ class Statistics {
     const totalWeight = memPoolArray.map((tx) => tx.vsize).reduce((acc, curr) => acc + curr) * 4;
     const totalFee = memPoolArray.map((tx) => tx.fee).reduce((acc, curr) => acc + curr);
 
+    // Use existing database columns - Meowcoin realistic fee buckets  (trm/vByte)
     const logFees = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 125, 150, 175, 200,
       250, 300, 350, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000];
 
@@ -73,11 +74,14 @@ class Statistics {
     const lastItem = logFees.length - 1;
 
     memPoolArray.forEach((transaction) => {
+      // effectiveFeePerVsize is already in mew/vbyte (satoshis per vbyte)
+      const feeInMewVbyte = transaction.effectiveFeePerVsize;
+
       for (let i = 0; i < logFees.length; i++) {
         if (
-          (Common.isLiquid() && (i === lastItem || transaction.effectiveFeePerVsize * 10 < logFees[i + 1]))
+          (Common.isLiquid() && (i === lastItem || feeInMewVbyte * 10 < logFees[i + 1]))
           ||
-          (!Common.isLiquid() && (i === lastItem || transaction.effectiveFeePerVsize < logFees[i + 1]))
+          (!Common.isLiquid() && (i === lastItem || feeInMewVbyte < logFees[i + 1]))
         ) {
           if (weightVsizeFees[logFees[i]]) {
             weightVsizeFees[logFees[i]] += transaction.vsize;
