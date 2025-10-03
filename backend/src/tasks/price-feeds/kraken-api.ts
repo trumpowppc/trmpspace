@@ -7,8 +7,8 @@ class KrakenApi implements PriceFeed {
   public name: string = 'Kraken';
   public currencies: string[] = ['USD', 'EUR', 'GBP', 'AUD', 'JPY'];
 
-  public url: string = 'https://api.kraken.com/0/public/Ticker?pair=LTC';
-  public urlHist: string = 'https://api.kraken.com/0/public/OHLC?interval={GRANULARITY}&pair=LTC';
+  public url: string = 'https://api.kraken.com/0/public/Ticker?pair=TRMP';
+  public urlHist: string = 'https://api.kraken.com/0/public/OHLC?interval={GRANULARITY}&pair=TRMP';
 
   constructor() {
   }
@@ -16,7 +16,7 @@ class KrakenApi implements PriceFeed {
   private getTicker(currency): string {
     let ticker = `XLTCZ${currency}`;
     if (['AUD', 'GBP'].includes(currency)) {
-      ticker = `LTC${currency}`;
+      ticker = `TRMP${currency}`;
     }
     return ticker;
   }

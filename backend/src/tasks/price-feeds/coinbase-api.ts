@@ -5,8 +5,8 @@ class CoinbaseApi implements PriceFeed {
   public name: string = 'Coinbase';
   public currencies: string[] = ['USD', 'EUR', 'GBP', 'JPY', 'AUD'];
 
-  public url: string = 'https://api.coinbase.com/v2/prices/LTC-{CURRENCY}/buy';
-  public urlHist: string = 'https://api.exchange.coinbase.com/products/LTC-{CURRENCY}/candles?granularity={GRANULARITY}';
+  public url: string = 'https://api.coinbase.com/v2/prices/TRMP-{CURRENCY}/buy';
+  public urlHist: string = 'https://api.exchange.coinbase.com/products/TRMP-{CURRENCY}/candles?granularity={GRANULARITY}';
 
   constructor() {
   }

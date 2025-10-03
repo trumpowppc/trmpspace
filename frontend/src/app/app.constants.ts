@@ -1,4 +1,4 @@
-export const mempoolFeeColors = [ // LTCbrand: mempool block colours
+export const mempoolFeeColors = [ // TRMPbrand: mempool block colours
   '0BAF6E', // green
   '20C572',
   '40C884',
@@ -150,79 +150,39 @@ export const specialBlocks = {
     labelEventCompleted: 'The Genesis of Litecoin',
     networks: ['mainnet', 'testnet'],
   },
-  '840000': {
-    labelEvent: 'Litecoin\'s 1st Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 25 LTC per block',
+  '100000': {
+    labelEvent: 'TrumPOW\'s 1st Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 500,000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
-  '1680000': {
-    labelEvent: 'Litecoin\'s 2nd Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 12.5 LTC per block',
+  '200000': {
+    labelEvent: 'TrumPOW\'s 2nd Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 250,000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
-  '2520000': {
-    labelEvent: 'Litecoin\'s 3rd Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 6.25 LTC per block',
+  '300000': {
+    labelEvent: 'TrumPOW\'s 3rd Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 125,000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
-  '3360000': {
-    labelEvent: 'Litecoin\'s 4th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 3.125 LTC per block',
+  '400000': {
+    labelEvent: 'TrumPOW\'s 4th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 62,500 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
-  '4200000': {
-    labelEvent: 'Litecoin\'s 5th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 1.5625 LTC per block',
+  '500000': {
+    labelEvent: 'TrumPOW\'s 5th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 31,250 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
-  '5040000': {
-    labelEvent: 'Litecoin\'s 6th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.78125 LTC per block',
+  '600000': {
+    labelEvent: 'TrumPOW\'s 6th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 15,625 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
-  '5880000': {
-    labelEvent: 'Litecoin\'s 7th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.390625 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '6720000': {
-    labelEvent: 'Litecoin\'s 8th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.1953125 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '7560000': {
-    labelEvent: 'Litecoin\'s 9th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.09765625 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '8400000': {
-    labelEvent: 'Litecoin\'s 10th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.04882812 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '9240000': {
-    labelEvent: 'Litecoin\'s 11th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.02441406 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '10080000': {
-    labelEvent: 'Litecoin\'s 12th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.01220703 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '10920000': {
-    labelEvent: 'Litecoin\'s 13th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.00610351 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '11760000': {
-    labelEvent: 'Litecoin\'s 14th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.00305175 LTC per block',
-    networks: ['mainnet', 'testnet'],
-  },
-  '12600000': {
-    labelEvent: 'Litecoin\'s 15th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 0.00152587 LTC per block',
+  '700000': {
+    labelEvent: 'TrumPOW\'s 7th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 10,000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   }
 };

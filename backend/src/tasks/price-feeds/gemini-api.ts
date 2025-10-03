@@ -5,8 +5,8 @@ class GeminiApi implements PriceFeed {
   public name: string = 'Gemini';
   public currencies: string[] = ['USD'];
 
-  public url: string = 'https://api.gemini.com/v1/pubticker/LTC';
-  public urlHist: string = 'https://api.gemini.com/v2/candles/LTC{CURRENCY}/{GRANULARITY}';
+  public url: string = 'https://api.gemini.com/v1/pubticker/TRMP';
+  public urlHist: string = 'https://api.gemini.com/v2/candles/TRMP{CURRENCY}/{GRANULARITY}';
 
   constructor() {
   }

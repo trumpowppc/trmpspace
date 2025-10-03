@@ -5,7 +5,7 @@ class BitfinexApi implements PriceFeed {
   public name: string = 'Bitfinex';
   public currencies: string[] = ['USD'];
 
-  public url: string = 'https://api.bitfinex.com/v1/pubticker/LTC';
+  public url: string = 'https://api.bitfinex.com/v1/pubticker/TRMP';
   public urlHist: string = 'https://api-pub.bitfinex.com/v2/candles/trade:{GRANULARITY}:tLTC{CURRENCY}/hist';
 
   public async $fetchPrice(currency): Promise<number> {
