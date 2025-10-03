@@ -1,10 +1,10 @@
-# TrumPOW Space
+# Trumpow Space
 
 <br>
 
-Litepool is the fully-featured mempool visualizer, explorer, and API service running at [trmpspace.trumpow.meme](https://trmpspace.trumpow.meme/).
+Trumpow Spaceis the fully-featured mempool visualizer, explorer, and API service running at [trmpspace.trumpow.meme](https://trmpspace.trumpow.meme/).
 
-It is an open-source project developed and operated for the benefit of the TrumPOW community, with a focus on the emerging transaction fee market that is evolving Litecoin into a multi-layer ecosystem.
+It is an open-source project developed and operated for the benefit of the Trumpow community, with a focus on the emerging transaction fee market that is evolving Litecoin into a multi-layer ecosystem.
 
 # Installation Methods
 
@@ -28,8 +28,8 @@ Mempool can be conveniently installed on the following full-node distros:
 
 ## Advanced Installation Methods
 
-Litepool can be installed in other ways too, but we only recommend doing so if you're a developer, have experience managing servers, or otherwise know what you're doing.
+Trumpow Spacecan be installed in other ways too, but we only recommend doing so if you're a developer, have experience managing servers, or otherwise know what you're doing.
 
-- See the [`docker/`](./docker/) directory for instructions on deploying Litepool with Docker.
+- See the [`docker/`](./docker/) directory for instructions on deploying Trumpow Spacewith Docker.
 - See the [`backend/`](./backend/) and [`frontend/`](./frontend/) directories for manual install instructions oriented for developers.
-- See the [`production/`](./production/) directory for guidance on setting up a more serious Litepool instance designed for high performance at scale.
+- See the [`production/`](./production/) directory for guidance on setting up a more serious Trumpow Spaceinstance designed for high performance at scale.

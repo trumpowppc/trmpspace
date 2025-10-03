@@ -171,7 +171,7 @@ class Server {
     const { lang, path } = parseLanguageUrl(rawPath);
     const matchedRoute = matchRoute(this.network, path);
     let ogImageUrl = config.SERVER.HOST + (matchedRoute.staticImg || matchedRoute.fallbackImg);
-    let ogTitle = 'TrumPOW Space';
+    let ogTitle = 'Trumpow Space';
 
     if (matchedRoute.render) {
       ogImageUrl = `${config.SERVER.HOST}/render/${lang || 'en'}/preview${path}`;
@@ -184,17 +184,17 @@ class Server {
       <head>
         <meta charset="utf-8">
         <title>${ogTitle}</title>
-        <meta name="description" content="TrumPOW Space - Gateway to Explore Litecoin"/>
+        <meta name="description" content="Trumpow Space - Gateway to Explore Trumpow"/>
         <meta property="og:image" content="${ogImageUrl}"/>
         <meta property="og:image:type" content="image/png"/>
         <meta property="og:image:width" content="${matchedRoute.render ? 1200 : 1000}"/>
         <meta property="og:image:height" content="${matchedRoute.render ? 600 : 500}"/>
         <meta property="og:title" content="${ogTitle}">
         <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:site" content="@litecoin">
-        <meta property="twitter:creator" content="@litecoin">
+        <meta property="twitter:site" content="@Trumpow">
+        <meta property="twitter:creator" content="@Trumpow">
         <meta property="twitter:title" content="${ogTitle}">
-        <meta property="twitter:description" content="Your Gateway to Explore Litecoin"/>
+        <meta property="twitter:description" content="Explore Trumpow"/>
         <meta property="twitter:image:src" content="${ogImageUrl}"/>
         <meta property="twitter:domain" content="trmpspace.trumpow.meme">
       <body></body>

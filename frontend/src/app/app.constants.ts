@@ -147,42 +147,42 @@ export const languages: Language[] = [
 export const specialBlocks = {
   '0': {
     labelEvent: 'Genesis',
-    labelEventCompleted: 'The Genesis of Litecoin',
+    labelEventCompleted: 'The Genesis of Trumpow',
     networks: ['mainnet', 'testnet'],
   },
   '100000': {
-    labelEvent: 'TrumPOW\'s 1st Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 500,000 TRMP per block',
+    labelEvent: 'Trumpow\'s 1st Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 500000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
   '200000': {
-    labelEvent: 'TrumPOW\'s 2nd Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 250,000 TRMP per block',
+    labelEvent: 'Trumpow\'s 2nd Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 250000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
   '300000': {
-    labelEvent: 'TrumPOW\'s 3rd Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 125,000 TRMP per block',
+    labelEvent: 'Trumpow\'s 3rd Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 125000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
   '400000': {
-    labelEvent: 'TrumPOW\'s 4th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 62,500 TRMP per block',
+    labelEvent: 'Trumpow\'s 4th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 62500 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
   '500000': {
-    labelEvent: 'TrumPOW\'s 5th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 31,250 TRMP per block',
+    labelEvent: 'Trumpow\'s 5th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 31250 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
   '600000': {
-    labelEvent: 'TrumPOW\'s 6th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 15,625 TRMP per block',
+    labelEvent: 'Trumpow\'s 6th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 15625 TRMP per block',
     networks: ['mainnet', 'testnet'],
   },
   '700000': {
-    labelEvent: 'TrumPOW\'s 7th Halving',
-    labelEventCompleted: 'Block Subsidy has halved to 10,000 TRMP per block',
+    labelEvent: 'Trumpow\'s 7th Halving',
+    labelEventCompleted: 'Block Subsidy has halved to 10000 TRMP per block',
     networks: ['mainnet', 'testnet'],
   }
 };

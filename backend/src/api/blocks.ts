@@ -84,46 +84,62 @@ class Blocks {
     let transactionsFound = 0;
     let transactionsFetched = 0;
 
-    for (let i = 0; i < txIds.length; i++) {
-      if (mempool[txIds[i]]) {
+    // Process transactions in parallel for better performance with fast block times
+    const transactionPromises = txIds.map(async (txId, i) => {
+      if (mempool[txId]) {
         // We update blocks before the mempool (index.ts), therefore we can
         // optimize here by directly fetching txs in the "outdated" mempool
-        transactions.push(mempool[txIds[i]]);
-        transactionsFound++;
+        return { tx: mempool[txId], found: true, fetched: false };
       } else if (config.MEMPOOL.BACKEND === 'esplora' || !memPool.hasPriority() || i === 0) {
         // Otherwise we fetch the tx data through backend services (esplora, electrum, core rpc...)
         if (!quiet && (i % (Math.round((txIds.length) / 10)) === 0 || i + 1 === txIds.length)) { // Avoid log spam
           logger.debug(`Indexing tx ${i + 1} of ${txIds.length} in block #${blockHeight}`);
         }
         try {
-          const tx = await transactionUtils.$getTransactionExtended(txIds[i]);
-          transactions.push(tx);
-          transactionsFetched++;
+          const tx = await transactionUtils.$getTransactionExtended(txId);
+          return { tx, found: false, fetched: true };
         } catch (e) {
           try {
             if (config.MEMPOOL.BACKEND === 'esplora') {
               // Try again with core
-              const tx = await transactionUtils.$getTransactionExtended(txIds[i], false, false, true);
-              transactions.push(tx);
-              transactionsFetched++;
+              const tx = await transactionUtils.$getTransactionExtended(txId, false, false, true);
+              return { tx, found: false, fetched: true };
             } else {
               throw e;
             }
           } catch (e) {
             if (i === 0) {
-              const msg = `Cannot fetch coinbase tx ${txIds[i]}. Reason: ` + (e instanceof Error ? e.message : e); 
+              const msg = `Cannot fetch coinbase tx ${txId}. Reason: ` + (e instanceof Error ? e.message : e); 
               logger.err(msg);
               throw new Error(msg);
             } else {
-              logger.err(`Cannot fetch tx ${txIds[i]}. Reason: ` + (e instanceof Error ? e.message : e));
+              logger.err(`Cannot fetch tx ${txId}. Reason: ` + (e instanceof Error ? e.message : e));
+              return null; // Skip failed transactions that aren't coinbase
             }
           }
         }
       }
+      return null; // Skip transactions that don't need fetching
+    });
 
-      if (onlyCoinbase === true) {
-        break; // Fetch the first transaction and exit
+      // Wait for all transactions to be fetched in parallel
+    const transactionResults = await Promise.all(transactionPromises);
+    
+    // Process results and count statistics
+    for (const result of transactionResults) {
+      if (result) {
+        transactions.push(result.tx);
+        if (result.found) {
+          transactionsFound++;
+        } else if (result.fetched) {
+          transactionsFetched++;
+        }
       }
+    }
+
+    if (onlyCoinbase === true) {
+      // For coinbase-only mode, keep only the first transaction
+      transactions.splice(1);
     }
 
     transactions.forEach((tx) => {
@@ -203,25 +219,30 @@ class Blocks {
     } else {
       const stats: IBitcoinApi.BlockStats = await bitcoinClient.getBlockStats(block.id);
       let feeStats = {
-        medianFee: stats.feerate_percentiles[2], // 50th percentiles
+        medianFee: stats.feerate_percentiles && stats.feerate_percentiles.length > 2 ? stats.feerate_percentiles[2] : (stats.medianfee || 0), // 50th percentiles
         feeRange: [stats.minfeerate, stats.feerate_percentiles, stats.maxfeerate].flat(),
       };
       if (transactions?.length > 1) {
-        feeStats = Common.calcEffectiveFeeStatistics(transactions);
+        try {
+          feeStats = Common.calcEffectiveFeeStatistics(transactions);
+        } catch (e) {
+          // Fallback to getblockstats data if calcEffectiveFeeStatistics fails
+          console.log(`[FEE CALC] Fallback to getblockstats for block ${block.id}: ${e instanceof Error ? e.message : e}`);
+        }
       }
-      extras.medianFee = feeStats.medianFee;
-      extras.feeRange = feeStats.feeRange;
-      extras.totalFees = stats.totalfee;
-      extras.avgFee = stats.avgfee;
-      extras.avgFeeRate = stats.avgfeerate;
-      extras.utxoSetChange = stats.utxo_increase;
-      extras.avgTxSize = Math.round(stats.total_size / stats.txs * 100) * 0.01;
-      extras.totalInputs = stats.ins;
-      extras.totalOutputs = stats.outs;
-      extras.totalOutputAmt = stats.total_out;
-      extras.segwitTotalTxs = stats.swtxs;
-      extras.segwitTotalSize = stats.swtotal_size;
-      extras.segwitTotalWeight = stats.swtotal_weight;
+      extras.medianFee = Math.max(0, feeStats.medianFee || 0);
+      extras.feeRange = feeStats.feeRange || [0, 0, 0, 0, 0, 0, 0];
+      extras.totalFees = Math.max(0, stats.totalfee || 0);
+      extras.avgFee = Math.max(0, stats.avgfee || 0);
+      extras.avgFeeRate = Math.max(0, stats.avgfeerate || 0);
+      extras.utxoSetChange = stats.utxo_increase || 0;
+      extras.avgTxSize = stats.txs > 0 ? Math.round((stats.total_size || 0) / stats.txs * 100) * 0.01 : 0;
+      extras.totalInputs = stats.ins || 0;
+      extras.totalOutputs = stats.outs || 0;
+      extras.totalOutputAmt = stats.total_out || 0;
+      extras.segwitTotalTxs = stats.swtxs || 0;
+      extras.segwitTotalSize = stats.swtotal_size || 0;
+      extras.segwitTotalWeight = stats.swtotal_weight || 0;
     }
 
     if (Common.blocksSummariesIndexingEnabled()) {
@@ -243,7 +264,7 @@ class Blocks {
     }
 
     const header = await bitcoinClient.getBlockHeader(block.id, false);
-    extras.header = header.substring(0, 160); // Truncate to fit database varchar(160)
+    extras.header = header; // Full header - database field supports 300 characters
 
     const coinStatsIndex = indexer.isCoreIndexReady('coinstatsindex');
     if (coinStatsIndex !== null && coinStatsIndex.best_block_height >= block.height) {

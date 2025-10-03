@@ -45,6 +45,10 @@ $dropdown-link-hover-bg: #11131f;
 $dropdown-link-active-color: #fff;
 $dropdown-link-active-bg: #11131f;
 
+// Trumpow Font Configuration
+$font-family-base: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$headings-font-family: 'Nunito', sans-serif;
+
 @import "~bootstrap/scss/bootstrap";
 @import '~tlite/tlite.css';
 
@@ -74,6 +78,34 @@ main {
 
 :focus {
   outline: none !important;
+}
+
+// Meowcoin Custom Font Styles
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+// Make the logo extra playful
+.logo-text, .brand-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+// Clean buttons and special elements
+.btn-primary, .btn-success, .btn-info {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+// Card headers with consistent font
+.card-header h1, .card-header h2, .card-header h3, 
+.card-header h4, .card-header h5, .card-header h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
 }
 
 .box {

@@ -1,10 +1,10 @@
-# Litepool Backend
+# Trumpow SpaceBackend
 
 These instructions are mostly intended for developers.
 
-If you choose to use these instructions for a production setup, be aware that you will still probably need to do additional configuration for your specific OS, environment, use-case, etc. We do our best here to provide a good starting point, but only proceed if you know what you're doing. Litepool does not provide support for custom setups.
+If you choose to use these instructions for a production setup, be aware that you will still probably need to do additional configuration for your specific OS, environment, use-case, etc. We do our best here to provide a good starting point, but only proceed if you know what you're doing. Trumpow Spacedoes not provide support for custom setups.
 
-See other ways to set up Litepool on [the main README](/../../#installation-methods).
+See other ways to set up Trumpow Spaceon [the main README](/../../#installation-methods).
 
 Jump to a section in this doc:
 
@@ -13,9 +13,9 @@ Jump to a section in this doc:
 
 ## Setup
 
-### 1. Clone Litepool Repository
+### 1. Clone Trumpow SpaceRepository
 
-Get the latest Litepool code:
+Get the latest Trumpow Spacecode:
 
 ```
 git clone https://github.com/trumpowppc/trmpspace
@@ -44,7 +44,7 @@ rpcpassword=mempool
 
 [Pick an Electrum Server implementation](https://trmpspace.trumpow.meme/docs/faq#address-lookup-issues), configure it, and make sure it's synced.
 
-**This step is optional.** You can run Litepool without configuring an Electrum Server for it, but address lookups will be disabled.
+**This step is optional.** You can run Trumpow Spacewithout configuring an Electrum Server for it, but address lookups will be disabled.
 
 ### 4. Configure MariaDB
 
@@ -74,7 +74,7 @@ MariaDB [(none)]> grant all privileges on mempool.* to 'mempool'@'%' identified 
 Query OK, 0 rows affected (0.00 sec)
 ```
 
-### 5. Prepare Litepool Backend
+### 5. Prepare Trumpow SpaceBackend
 
 #### Build
 
@@ -106,9 +106,9 @@ In particular, make sure:
   - "esplora" if you're using [electrs-ltc-esplora](https://github.com/rust-litecoin/electrs-ltc/tree/esplora)
   - "none" if you're not using any Electrum Server
 
-### 6. Run Litepool Backend
+### 6. Run Trumpow SpaceBackend
 
-Run the Litepool backend:
+Run the Trumpow Spacebackend:
 
 ```
 npm run start
@@ -144,9 +144,9 @@ Mempool updated in 0.243 seconds
 Updating mempool
 ```
 
-### 7. Set Up Litepool Frontend
+### 7. Set Up Trumpow SpaceFrontend
 
-With the backend configured and running, proceed to set up the [Litepool frontend](../frontend#manual-setup).
+With the backend configured and running, proceed to set up the [Trumpow Spacefrontend](../frontend#manual-setup).
 
 ## Development Tips
 

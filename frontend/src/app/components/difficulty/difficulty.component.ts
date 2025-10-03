@@ -32,7 +32,7 @@ interface DiffShape {
   expected: boolean;
 }
 
-const EPOCH_BLOCK_LENGTH = 2016; // Bitcoin mainnet
+const EPOCH_BLOCK_LENGTH = 2016; // Trumpow mainnet
 
 @Component({
   selector: 'app-difficulty',
@@ -92,8 +92,10 @@ export class DifficultyComponent implements OnInit {
           colorPreviousAdjustments = '#ffffff66';
         }
 
-        const blocksUntilHalving = 840000 - (block.height % 840000);
-        const timeUntilHalving = new Date().getTime() + (blocksUntilHalving * 150000);
+        // Trumpow halving every 100,000 blocks
+        const blocksUntilHalving = 100000 - (block.height % 100000);
+        // Trumpow block time: 60 seconds (1 minute)
+        const timeUntilHalving = new Date().getTime() + (blocksUntilHalving * 60000);
         const newEpochStart = Math.floor(this.stateService.latestBlockHeight / EPOCH_BLOCK_LENGTH) * EPOCH_BLOCK_LENGTH;
         const newExpectedHeight = Math.floor(newEpochStart + da.expectedBlocks);
 
