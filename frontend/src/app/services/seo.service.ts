@@ -7,7 +7,7 @@ import { StateService } from './state.service';
 })
 export class SeoService {
   network = '';
-  baseTitle = 'Litecoin Space';
+  baseTitle = 'TrumPOW Space';
 
   constructor(
     private titleService: Title,

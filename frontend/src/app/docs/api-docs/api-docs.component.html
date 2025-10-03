@@ -16,7 +16,7 @@
               <td><app-svg-images name="warning" class="disclaimer-warning" viewBox="0 0 304 304" fill="#ffc107"
                   width="50" height="50"></app-svg-images></td>
               <td>
-                <p i18n="faq.big-disclaimer"><b>litecoinspace.org merely provides data about the Litecoin network.</b>
+                <p i18n="faq.big-disclaimer"><b>trmpspace.trumpow.meme merely provides data about the Litecoin network.</b>
                   It
                   cannot help you with retrieving funds, confirming your transaction quicker, etc.</p>
                 <p>For any such requests, you need to get in touch with the entity that helped make the transaction
@@ -26,7 +26,7 @@
           </table>
           <div *ngIf="mobileViewport"><app-svg-images name="warning" class="disclaimer-warning" viewBox="0 0 304 304"
               fill="#ffc107" width="50" height="50"></app-svg-images>
-            <p i18n="faq.big-disclaimer"><b>litecoinspace.org merely provides data about the Litecoin network.</b> It
+            <p i18n="faq.big-disclaimer"><b>trmpspace.trumpow.meme merely provides data about the Litecoin network.</b> It
               cannot help you with retrieving funds, confirming your transaction quicker, etc.</p>
             <p>For any such requests, you need to get in touch with the entity that helped make the transaction (wallet
               software, exchange company, etc).</p>
@@ -209,7 +209,7 @@
 <ng-template type="what-is-a-mempool-explorer">
   <p>A mempool explorer is a tool that enables you to view real-time and historical information about a node's mempool,
     visualize its transactions, and search and view those transactions.</p>
-  <p>The litecoinspace.org website invented the concept of visualizing a Litecoin node's mempool as <b>projected
+  <p>The trmpspace.trumpow.meme website invented the concept of visualizing a Litecoin node's mempool as <b>projected
       blocks</b>.
     These blocks are the inspiration for our half-filled block logo.</p>
   <p>Projected blocks are on the left of the dotted white line, and confirmed blocks are on the right.</p>
@@ -256,8 +256,8 @@
 </ng-template>
 
 <ng-template type="what-is-svb">
-  <p>The priority of a pending Litecoin Transaction is determined by its feerate. Feerates are measured in lit/vB.</p>
-  <p>Using a higher lit/vB feerate for a Litecoin Transaction will generally result in quicker confirmation than using a
+  <p>The priority of a pending Litecoin Transaction is determined by its feerate. Feerates are measured in trm/vB.</p>
+  <p>Using a higher trm/vB feerate for a Litecoin Transaction will generally result in quicker confirmation than using a
     lower feerate. But feerates change all the time, so it's important to check suggested feerates right before making a
     transaction to <a [routerLink]="['/docs/faq' | relativeUrl]" fragment="why-is-transaction-stuck-in-mempool">avoid it
       from getting stuck</a>.</p>
@@ -325,7 +325,7 @@
   </ul>
   <p>In all cases, the suggested feerate is adjusted lower if any of the mempool blocks involved in the calculation are
     not full (example: if there is only 1 mempool block that's less than half-full, Mempool will suggest a feerate of 1
-    lit/vB—not the median feerate of transactions in the block).</p>
+    trm/vB—not the median feerate of transactions in the block).</p>
   <p>Mempool blocks use feerates, transaction sizes, and other metrics to <b>forecast</b> which transactions will be in
     future blocks. Actual blocks will turn out to be different: miners have their own views of the mempool, their own
     algorithms for determining which transactions to include in a block, etc.</p>
@@ -350,17 +350,17 @@
 </ng-template>
 
 <ng-template type="how-big-is-mempool-used-by-mempool-space">
-  <p>litecoinspace.org uses multiple Litecoin nodes to obtain data: some with the default 300MB mempool memory limit
+  <p>trmpspace.trumpow.meme uses multiple Litecoin nodes to obtain data: some with the default 300MB mempool memory limit
     (call
     these Small Nodes) and others with a much larger mempool memory limit (call these Big Nodes).</p>
   <p>Many nodes on the Litecoin network are configured to run with the default 300MB mempool memory setting. When all
     300MB of memory are used up, such nodes will reject transactions below a certain threshold feerate. Running Small
-    Nodes allows litecoinspace.org to tell you what this threshold feerate is—this is the "Purging" feerate that shows
+    Nodes allows trmpspace.trumpow.meme to tell you what this threshold feerate is—this is the "Purging" feerate that shows
     on
     the front page when mempools are full, which you can use to be reasonably sure that your transaction will be widely
     propagated.</p>
   <p>Big Node mempools are so big that they don't need to reject (or purge) transactions. Such nodes allow for
-    litecoinspace.org to provide you with information on any pending transaction it has received—no matter how congested
+    trmpspace.trumpow.meme to provide you with information on any pending transaction it has received—no matter how congested
     the
     mempool is, and no matter how low-feerate or low-priority the transaction is.</p>
 </ng-template>
@@ -369,9 +369,9 @@
   <p>Memory usage on the front page refers to the real-time amount of system memory used by a Litecoin node's mempool.
     This memory usage number is always higher than the total size of all pending transactions in the mempool due to
     indexes, pointers, and other overhead used by Litecoin Core for storage and processing.</p>
-  <p>litecoinspace.org shows the memory usage of a Litecoin node that has a very high mempool memory limit. As a result,
+  <p>trmpspace.trumpow.meme shows the memory usage of a Litecoin node that has a very high mempool memory limit. As a result,
     when
-    mempools fill up, you may notice memory usage on litecoinspace.org go beyond 300MB. This is not a mistake—this
+    mempools fill up, you may notice memory usage on trmpspace.trumpow.meme go beyond 300MB. This is not a mistake—this
     memory
     usage figure is high because it's for a Litecoin node that isn't rejecting (or evicting) transactions. Consider it
     to
@@ -417,7 +417,7 @@
   <p>A block audit visually compares Mempool's expected block to the actual block for a particular block height.</p>
   <p>How is the expected block determined? Mempool monitors its view of the mempool and runs a re-implementation of
     Litecoin Core's transaction selection algorithm to determine the transactions it expects to see in upcoming blocks
-    (<a href="https://github.com/litecoin-foundation/ltcspace/blob/master/backend/src/api/mempool-blocks.ts"
+    (<a href="https://github.com/trumpowppc/trmpspace/blob/master/backend/src/api/mempool-blocks.ts"
       target="_blank">source
       code here</a>). Since there is a continual flow of new transactions, this algorithm runs every 2 seconds, and as a
     result, you will see the transactions <a href="/mempool-block/0">projected to be in upcoming blocks</a> change in
@@ -470,7 +470,7 @@
   <p>See how results of the block audit are used to devise the block health score <a
       [routerLink]="['/docs/faq' | relativeUrl]" fragment="what-is-block-health">below</a>.</p>
   <p class='note'>Because of this feature's resource usage and availability requirements, it is only supported on
-    official litecoinspace.org instances.</p>
+    official trmpspace.trumpow.meme instances.</p>
 </ng-template>
 
 <ng-template type="what-is-block-health">
@@ -503,13 +503,13 @@
   <p>See more context in our FAQ on <a [routerLink]="['/docs/faq' | relativeUrl]"
       fragment="how-do-block-audits-work">block audits</a>.</p>
   <p class='note'>Because of this feature's resource usage and availability requirements, it is only supported on
-    official litecoinspace.org instances.</p>
+    official trmpspace.trumpow.meme instances.</p>
 </ng-template>
 
 <ng-template type="who-runs-this-website">
-  The official litecoinspace.org website is operated by Litecoin Foundation. See more information on our <a
+  The official trmpspace.trumpow.meme website is operated by Litecoin Foundation. See more information on our <a
     [routerLink]="['/about']">About page</a>. There are also many unofficial instances of this website operated by
-  individual members of the Litecoin community.
+  individual members of the TrumPOW community.
 </ng-template>
 
 <ng-template type="host-my-own-instance-raspberry-pi">
@@ -524,7 +524,7 @@
 
 <ng-template type="install-mempool-with-docker">
   Yes, we publish Docker images (or you can build your own). Check out <a
-    href="https://github.com/litecoin-foundation/ltcspace/tree/master/docker" target="_blank">the documentation</a> for
+    href="https://github.com/trumpowppc/trmpspace/tree/master/docker" target="_blank">the documentation</a> for
   details.
 </ng-template>
 
@@ -543,6 +543,6 @@
       you're having issues with romanz/electrs, Fulcrum is worth a try.</li>
     <li><a href="https://github.com/rust-litecoin/electrs-ltc/tree/esplora" target="_blank">electrs-ltc-esplora</a>. If
       you have stronger
-      hardware, consider running Blockstream's electrs implementation. It's the backend litecoinspace.org uses.</li>
+      hardware, consider running Blockstream's electrs implementation. It's the backend trmpspace.trumpow.meme uses.</li>
   </ol>
 </ng-template>

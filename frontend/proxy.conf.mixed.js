@@ -34,7 +34,7 @@ PROXY_CONFIG.push(
     },
     {
       context: ["/api/**"],
-      target: `https://litecoinspace.org`,
+      target: `https://trmpspace.trumpow.meme`,
       secure: false,
       changeOrigin: true,
       proxyTimeout: 30000,

@@ -8,7 +8,7 @@ import { StateService } from './state.service';
   providedIn: 'root'
 })
 export class EnterpriseService {
-  exclusiveHostName = '.litecoinspace.org';
+  exclusiveHostName = '.trmpspace.trumpow.meme';
   subdomain: string | null = null;
   info: object = {};
 
@@ -39,7 +39,7 @@ export class EnterpriseService {
     },
     (error) => {
       if (error.status === 404) {
-        window.location.href = 'https://litecoinspace.org' + window.location.pathname;
+        window.location.href = 'https://trmpspace.trumpow.meme' + window.location.pathname;
       }
     });
   }
